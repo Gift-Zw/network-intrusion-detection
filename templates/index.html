@@ -163,7 +163,17 @@
     {% for log in network_logs %}
     <tr>
       <td>{{ log.id }}</td>
-      <td>{{ log.outcome }}</td>
+      <td>
+                                            {% if log.outcome == 'normal' %}
+                            <span class="badge badge-pill badge-success">{{ log.outcome }}</span>
+                        {% elif log.outcome in 'spy ipsweep' %}
+                            <span class="badge badge-pill badge-warning">{{ log.outcome }}</span>
+                        {% elif log.outcome in 'guess_passwd smurf neptune teardrop satan' %}
+                            <span class="badge badge-pill badge-danger">{{ log.outcome }}</span>
+                        {% else %}
+                            <span class="badge badge-pill badge-secondary">{{ log.outcome }}</span>
+                        {% endif %}
+      </td>
       <td>{{ log.protocol_type }}</td>
       <td>{{ log.service }}</td>
       <td>{{ log.flag }}</td>

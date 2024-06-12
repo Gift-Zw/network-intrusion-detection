@@ -4,6 +4,7 @@ import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 
 
+
 class NetworkTrafficConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.channel_layer.group_add(

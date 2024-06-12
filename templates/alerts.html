@@ -48,35 +48,30 @@
       <th><strong>Outcome</strong></th>
       <th><strong>Protocol Type</strong></th>
       <th><strong>Service</strong></th>
-      <th><strong>Flag</strong></th>
-      <th><strong>Source Bytes</strong></th>
-      <th><strong>Destination Bytes</strong></th>
-      <th><strong>Logged In</strong></th>
-      <th><strong>Failed Logins</strong></th>
-      <th><strong>Root Shell</strong></th>
-      <th><strong>SU Attempted</strong></th>
-      <th><strong>Num Root</strong></th>
-      <th><strong>Guest Login</strong></th>
-      <th><strong>Date Created</strong></th>
+      <th><strong>Email</strong></th>
+      <th><strong>SMS</strong></th>
+      <th><strong>Date Sent</strong></th>
     </tr>
   </thead>
   <tbody id="tbody">
-    {% for log in network_logs %}
+    {% for alert in alerts %}
     <tr>
-      <td>{{ log.id }}</td>
-      <td>{{ log.outcome }}</td>
-      <td>{{ log.protocol_type }}</td>
-      <td>{{ log.service }}</td>
-      <td>{{ log.flag }}</td>
-      <td>{{ log.src_bytes }}</td>
-      <td>{{ log.dst_bytes }}</td>
-      <td>{{ log.logged_in }}</td>
-      <td>{{ log.num_failed_logins }}</td>
-      <td>{{ log.root_shell }}</td>
-      <td>{{ log.su_attempted }}</td>
-      <td>{{ log.num_root }}</td>
-      <td>{{ log.is_guest_login }}</td>
-      <td>{{ log.created_at }}</td>
+      <td>{{ alert.id }}</td>
+      <td>                                  {% if alert.outcome == 'normal' %}
+                            <span class="badge badge-pill badge-success">{{ alert.outcome }}</span>
+                        {% elif alert.outcome in 'spy ipsweep' %}
+                            <span class="badge badge-pill badge-warning">{{ alert.outcome }}</span>
+                        {% elif alert.outcome in 'guess_passwd smurf neptune teardrop satan' %}
+                            <span class="badge badge-pill badge-danger">{{ alert.outcome }}</span>
+                        {% else %}
+                            <span class="badge badge-pill badge-secondary">{{ alert.outcome }}</span>
+                        {% endif %}</td>
+      <td>{{ alert.protocol_type }}</td>
+      <td>{{ alert.service }}</td>
+      <td>{{ alert.email }}</td>
+      <td>{{ alert.sms }}</td>
+      <td>{{ alert.date }}</td>
+
     </tr>
     {% endfor %}
   </tbody>

@@ -6,7 +6,7 @@ from django.utils import timezone
 
 # Create your models here.
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, first_name, last_name, password=None):
+    def create_user(self, email, first_name, last_name, cell, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -18,13 +18,15 @@ class MyUserManager(BaseUserManager):
             email=self.normalize_email(email),
             first_name=first_name,
             last_name=last_name,
+            cell=cell
+
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, first_name, last_name, password):
+    def create_superuser(self, email, first_name, last_name, cell, password):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -34,6 +36,7 @@ class MyUserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
+            cell=cell
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -48,13 +51,14 @@ class User(AbstractBaseUser):
     )
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True)
+    cell = models.CharField(max_length=20, default='+263776149765')
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
     objects = MyUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'cell']
 
     def has_perm(self, perm, obj=None):
         return True
@@ -122,3 +126,12 @@ class NetworkTraffic(models.Model):
         verbose_name = 'Network Traffic'
         verbose_name_plural = 'Network Traffic'
         ordering = ('-created_at',)
+
+
+class AlertNotification(models.Model):
+    protocol_type = models.CharField(max_length=10)  # e.g., 'tcp', 'udp', 'icmp'
+    service = models.CharField(max_length=50)
+    email = models.BooleanField(default=True)
+    sms = models.BooleanField(default=True)
+    outcome = models.CharField(max_length=50)
+    date = models.DateTimeField(auto_now_add=True)

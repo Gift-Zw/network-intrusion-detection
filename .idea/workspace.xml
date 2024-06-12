@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3595beb-a009-4ee6-98f0-fb554286cd49" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/consumers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/routing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/seriealizers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/alerts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/emails.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/sms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/consumers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intrusion_detection/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/intrusion_detection/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intrusion_detection/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/intrusion_detection/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intrusion_detection/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/intrusion_detection/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/apps.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/apps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/alerts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/alerts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/logs.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/logs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -42,15 +41,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/giftm/PycharmProjects/intrusion_detection/static/assets"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/giftm/PycharmProjects/intrusion_detection/static/assets&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\giftm\PycharmProjects\intrusion_detection\static\assets" />
@@ -103,6 +102,7 @@
       <workItem from="1717493399673" duration="643000" />
       <workItem from="1718105537987" duration="6861000" />
       <workItem from="1718126151857" duration="3801000" />
+      <workItem from="1718174743962" duration="4928000" />
     </task>
     <servers />
   </component>
