@@ -121,3 +121,4 @@ class NetworkTraffic(models.Model):
     class Meta:
         verbose_name = 'Network Traffic'
         verbose_name_plural = 'Network Traffic'
+        ordering = ('-created_at',)

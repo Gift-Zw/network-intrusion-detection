@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework',
     'crispy_forms',
     'crispy_bootstrap5',
+    'channels',
+
 ]
 
 MIDDLEWARE = [
@@ -72,6 +76,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'intrusion_detection.wsgi.application'
+ASGI_APPLICATION = 'intrusion_detection.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {"BACKEND": "channels.layers.InMemoryChannelLayer"},
+}
 
 
 # Database

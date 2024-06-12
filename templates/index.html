@@ -28,23 +28,103 @@
                 </div>
               </div>
               <div class="row items-align-baseline">
-                    <div class="col-12 col-md-6">
+
+                <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-header">
+                      <span class="card-title"><strong>Network Logs Monitored Today</strong></span>
+                    </div>
+                    <div class="card-body my-n2">
+                      <div class="d-flex">
+                        <div class="flex-fill">
+                          <h4 class="mb-0" id="today_logs">{{ today_logs }}</h4>
+                        </div>
+                        <div class="flex-fill text-right">
+                          <p class="mb-0 small text-success-dark">+2%</p>
+                        </div>
+                      </div>
+                    </div> <!-- .card-body -->
+                  </div> <!-- .card -->
+                </div> <!-- .col -->
+              <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-header">
+                      <span class="card-title" ><strong>Total Network Logs Monitored</strong></span>
+                    </div>
+                    <div class="card-body my-n2">
+                      <div class="d-flex">
+                        <div class="flex-fill">
+                          <h4 class="mb-0" id="total_logs">{{ total_logs }}</h4>
+                        </div>
+                        <div class="flex-fill text-right">
+                          <p class="mb-0 small text-success-dark">+4.3%</p>
+                        </div>
+                      </div>
+                    </div> <!-- .card-body -->
+                  </div> <!-- .card -->
+                </div> <!-- .col -->
+              <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-header">
+                      <span class="card-title"><strong>System Users</strong></span>
+                    </div>
+                    <div class="card-body my-n2">
+                      <div class="d-flex">
+                        <div class="flex-fill">
+                          <h4 class="mb-0">{{ user_no }}</h4>
+                        </div>
+                        <div class="flex-fill text-right">
+                          <p class="mb-0 small text-success-dark">+20%</p>
+                        </div>
+                      </div>
+                    </div> <!-- .card-body -->
+                  </div> <!-- .card -->
+                </div> <!-- .col -->
+              <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-header">
+                        <span class="card-title"><strong>Model Accuracy</strong></span>
+                    </div>
+                    <div class="card-body my-n2">
+                      <div class="d-flex">
+                        <div class="flex-fill">
+                          <h4 class="mb-0">98.7%</h4>
+                        </div>
+                        <div class="flex-fill text-right">
+                          <p class="mb-0 small text-success-dark" >+2.5%</p>
+                        </div>
+                      </div>
+                    </div> <!-- .card-body -->
+                  </div> <!-- .card -->
+                </div> <!-- .col -->
+
+                    <div class="col-12 col-md-4">
                   <div class="card shadow mb-4">
                     <div class="card-header">
-                     <h4> <strong class="card-title mb-0">Protocol Distribution</strong></h4><span>(Total : {{ beneficiary_total }})</span>
+                     <h5> <strong class="card-title mb-0">Outcome Distribution</strong></h5>
                     </div>
                     <div class="card-body text-center">
-                      <div id="donutChart1"></div>
+                      <div id="outcomeChart"></div>
                     </div> <!-- /.card-body -->
                   </div> <!-- /.card -->
                 </div>
-                 <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
                   <div class="card shadow mb-4">
                     <div class="card-header">
-                     <h4> <strong class="card-title mb-0">Service Distribution</strong></h4><span>(Total : {{ beneficiary_total }})</span>
+                     <h5> <strong class="card-title mb-0">Protocol Distribution</strong></h5>
                     </div>
                     <div class="card-body text-center">
-                      <div id="donutChart122"></div>
+                      <div id="protocolChart"></div>
+                    </div> <!-- /.card-body -->
+                  </div> <!-- /.card -->
+                </div>
+                 <div class="col-12 col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header">
+                     <h5> <strong class="card-title mb-0">Service Distribution</strong></h5>
+                    </div>
+                    <div class="card-body text-center">
+                      <div id="serviceChart"></div>
                     </div> <!-- /.card-body -->
                   </div> <!-- /.card -->
                 </div> <!-- /. co
@@ -58,33 +138,45 @@
                 <div class="col-md-12 col-lg-12">
                   <div class="card shadow">
                     <div class="card-header">
-                      <strong class="card-title">Recent Online Donations</strong>
-                      <a class="float-right small text-muted" href="#">View all</a>
+                      <strong class="card-title">Recent Network Logs</strong>
+                      <a class="float-right small text-muted" href="{% url 'logs' %}">View all</a>
                     </div>
                     <div class="card-body my-n2">
                       <table class="table table-striped table-hover table-borderless">
                         <thead>
-                          <tr>
-                            <th><strong>#</strong></th>
-                            <th><strong>Donor Name</strong></th>
-                            <th><strong>Currency</strong></th>
-                            <th><strong>Amount</strong></th>
-                            <th><strong>Payment Method</strong></th>
-                               <th><strong>Date</strong></th>
-                          </tr>
-                        </thead>
-                        <tbody id="tbody">
-                        {% for donation in donations %}
-                          <tr>
-                            <td>{{ donation.id }}</td>
-                            <td>{{ donation.donor_name }}</td>
-                            <td>{{ donation.currency }}</td>
-                            <td>{{ donation.amount }}</td>
-                            <td>{{ donation.payment_method }}</td>
-                            <td>{{ donation.date }}</td>
-                          </tr>
-                        {% endfor %}
-                        </tbody>
+    <tr>
+      <th>#</th>
+      <th><strong>Outcome</strong></th>
+      <th><strong>Protocol Type</strong></th>
+      <th><strong>Service</strong></th>
+      <th><strong>Flag</strong></th>
+      <th><strong>Source Bytes</strong></th>
+      <th><strong>Destination Bytes</strong></th>
+      <th><strong>Logged In</strong></th>
+      <th><strong>Failed Logins</strong></th>
+      <th><strong>Root Shell</strong></th>
+      <th><strong>Guest Login</strong></th>
+      <th><strong>Date Created</strong></th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+    {% for log in network_logs %}
+    <tr>
+      <td>{{ log.id }}</td>
+      <td>{{ log.outcome }}</td>
+      <td>{{ log.protocol_type }}</td>
+      <td>{{ log.service }}</td>
+      <td>{{ log.flag }}</td>
+      <td>{{ log.src_bytes }}</td>
+      <td>{{ log.dst_bytes }}</td>
+      <td>{{ log.logged_in }}</td>
+      <td>{{ log.num_failed_logins }}</td>
+      <td>{{ log.root_shell }}</td>
+      <td>{{ log.is_guest_login }}</td>
+      <td>{{ log.created_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
                       </table>
                     </div>
                   </div>
@@ -97,11 +189,60 @@
     <script src="{% static 'js/apexcharts.custom.js' %}"></script>
         <script src="{% static 'js/tinycolor-min.js' %}"></script>
     <script src="{% static 'js/Chart.min.js' %}"></script>
-    <script>
+        <script src="{% static 'js/apps.js' %}"></script>
 
+<script>
+    const socket = new WebSocket('ws://' + window.location.host + '/ws/network-logs/');
+    console.log('We are in');
 
+    var sum_normal = {{ sum_normal }};
+    var sum_pass = {{ sum_pass }};
+    var sum_smurf = {{ sum_smurf }};
+    var sum_neptune = {{ sum_neptune }};
+    var sum_tear_drop = {{ sum_tear_drop }};
+    var sum_port_sweep = {{ sum_port_sweep }};
+    var sum_tcp = {{ sum_tcp }};
+    var sum_udp = {{ sum_udp }};
+    var sum_icmp = {{ sum_icmp }};
+    var sum_http = {{ sum_http }};
+    var sum_smtp = {{ sum_smtp }};
+    var sum_domain = {{ sum_domain }};
+    var sum_ftp = {{ sum_ftp }};
+    var sum_ssh = {{ sum_ssh }};
+    var sum_telnet = {{ sum_telnet }};
+    var sum_private = {{ sum_private }};
 
-        var base = {
+    socket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        console.log(data);
+        const today_logs = document.getElementById("today_logs");
+        today_logs.innerText = data.today_logs;
+        const total_logs = document.getElementById("total_logs");
+        total_logs.innerText = data.total_logs;
+        sum_normal = data.sum_normal;
+        sum_pass = data.sum_pass;
+        sum_smurf = data.sum_smurf;
+        sum_neptune = data.sum_neptune;
+        sum_tear_drop = data.sum_tear_drop;
+        sum_port_sweep = data.sum_port_sweep;
+        sum_tcp = data.sum_tcp;
+        sum_udp = data.sum_udp;
+        sum_icmp = data.sum_icmp;
+        sum_http = data.sum_http;
+        sum_smtp = data.sum_smtp;
+        sum_domain = data.sum_domain;
+        sum_ftp = data.sum_ftp;
+        sum_ssh = data.sum_ssh;
+        sum_telnet = data.sum_telnet;
+        sum_private = data.sum_private;
+
+        // Update the charts with the new data
+        outcomeChart.updateSeries([sum_normal, sum_pass, sum_smurf, sum_neptune, sum_tear_drop, sum_port_sweep]);
+        protocolChart.updateSeries([sum_tcp, sum_udp, sum_icmp]);
+        serviceChart.updateSeries([sum_http, sum_smtp, sum_domain, sum_ftp, sum_ssh, sum_telnet, sum_private]);
+    };
+
+    var base = {
         defaultFontFamily: "Overpass, sans-serif",
         primaryColor: "#1b68ff",
         secondaryColor: "#4f4f4f",
@@ -118,20 +259,18 @@
         primaryColorDark: tinycolor(base.primaryColor).darken(10).toString(),
         primaryColorDarker: tinycolor(base.primaryColor).darken(30).toString(),
     },
-        chartColors = [base.primaryColor, base.successColor, "#6f42c1", extend.primaryColorLighter],
+    chartColors = [base.primaryColor, base.successColor, "#6f42c1", extend.primaryColorLighter],
     colors = { bodyColor: "#6c757d", headingColor: "#495057", borderColor: "#e9ecef", backgroundColor: "#f8f9fa", mutedColor: "#adb5bd", chartTheme: "light" },
     darkColor = { bodyColor: "#adb5bd", headingColor: "#e9ecef", borderColor: "#212529", backgroundColor: "#495057", mutedColor: "#adb5bd", chartTheme: "dark" },
-    curentTheme = localStorage.getItem("mode")
+    curentTheme = localStorage.getItem("mode");
 
-
-
-         var donutchart,
-    donutChartOptions = {
-        series: [{{ orphanages_total }},{{ old_homes_total }}],
-        chart: { type: "donut", height: 305, zoom: { enabled: !1 } },
+    var outcomeChart,
+    outcomeChartOptions = {
+        series: [{{ sum_normal }}, {{ sum_pass }}, {{ sum_smurf }}, {{ sum_neptune }}, {{ sum_tear_drop }}, {{ sum_port_sweep }}],
+        chart: { type: "donut", height: 255, zoom: { enabled: !1 } },
         theme: { mode: colors.chartTheme },
         plotOptions: { pie: { donut: { size: "40%" }, expandOnClick: !1 } },
-        labels: ["Orphanages", "Old Peoples Homes",],
+        labels: ["Normal", "Password Guess", "Smurf", "Neptune", "Teardrop", "Port Sweep"],
         legend: {
             position: "bottom",
             fontFamily: base.defaultFontFamily,
@@ -147,16 +286,16 @@
         stroke: { colors: [colors.borderColor], width: 1 },
         fill: { opacity: 1, colors: ['#1b68ff', '#3ad29f', '#fd7e14', '#dc3545', '#6f42c1', '#14fdf3'] },
     },
-    donutchartCtn = document.querySelector("#donutChart1");
-donutchartCtn && (donutchart = new ApexCharts(donutchartCtn, donutChartOptions)).render();
+    outcomeChartCtn = document.querySelector("#outcomeChart");
+    outcomeChartCtn && (outcomeChart = new ApexCharts(outcomeChartCtn, outcomeChartOptions)).render();
 
-  var warrantyChart,
-    warrantyChartOptions = {
-        series: [25,35,33,54,42,40],
-        chart: { type: "donut", height: 305, zoom: { enabled: !1 } },
+    var protocolChart,
+    protocolChartOptions = {
+        series: [{{ sum_tcp }},{{ sum_udp }}, {{ sum_icmp }}],
+        chart: { type: "donut", height: 255, zoom: { enabled: !1 } },
         theme: { mode: colors.chartTheme },
         plotOptions: { pie: { donut: { size: "40%" }, expandOnClick: !1 } },
-        labels: ["Received", "Under Review", "Closed", "Under Investigation", "Referred to Court", "Suspended"],
+        labels: ["TCP", "UDP",  "ICMP"],
         legend: {
             position: "bottom",
             fontFamily: base.defaultFontFamily,
@@ -172,10 +311,40 @@ donutchartCtn && (donutchart = new ApexCharts(donutchartCtn, donutChartOptions))
         stroke: { colors: [colors.borderColor], width: 1 },
         fill: { opacity: 1, colors: ['#1b68ff', '#3ad29f', '#fd7e14', '#dc3545', '#6f42c1'] },
     },
-    warrantyChartCtn = document.querySelector("#warrantyChart");
-warrantyChartCtn && (warrantyChart = new ApexCharts(warrantyChartCtn, warrantyChartOptions)).render();
+    protocolChartCtn = document.querySelector("#protocolChart");
+    protocolChartCtn && (protocolChart = new ApexCharts(protocolChartCtn, protocolChartOptions)).render();
 
+    var serviceChart,
+    serviceChartOptions = {
+        series: [{{ sum_http }},{{ sum_smtp }},{{ sum_domain }}, {{ sum_ftp }}, {{ sum_ssh}}, {{ sum_telnet }}, {{ sum_private }} ],
+        chart: { type: "donut", height: 255, zoom: { enabled: !1 } },
+        theme: { mode: colors.chartTheme },
+        plotOptions: { pie: { donut: { size: "40%" }, expandOnClick: !1 } },
+        labels: ["HTTP", "SMTP",  "Domain", "FTP", "SSH",  "Telnet", "Private"],
+        legend: {
+            position: "bottom",
+            fontFamily: base.defaultFontFamily,
+            fontWeight: 400,
+            labels: { colors: colors.mutedColor, useSeriesColors: !1 },
+            horizontalAlign: "left",
+            fontFamily: base.defaultFontFamily,
+            markers: { width: 10, height: 10, strokeWidth: 0, strokeColor: "#fff", radius: 6 },
+            itemMargin: { horizontal: 10, vertical: 2 },
+            onItemClick: { toggleDataSeries: !0 },
+            onItemHover: { highlightDataSeries: !0 },
+        },
+        stroke: { colors: [colors.borderColor], width: 1 },
+        fill: { opacity: 1, colors: ['#1b68ff', '#3ad29f', '#fd7e14', '#dc3545', '#6f42c1'] },
+    },
+    serviceChartCtn = document.querySelector("#serviceChart");
+    serviceChartCtn && (serviceChart = new ApexCharts(serviceChartCtn, serviceChartOptions)).render();
+
+    var gauge1,svgg1=document.getElementById("gauge1");
+    svgg1&&(gauge1=Gauge(svgg1,{max:100,dialStartAngle:-90,dialEndAngle:-90.001,value:100,showValue:!1,label:function(e){return Math.round(100*e)/100},color:function(e){return e<20?base.primaryColor:e<40?base.successColor:e<60?base.warningColor:base.dangerColor}}),function e(){gauge1.setValue(90),gauge1.setValueAnimated(98,1),window.setTimeout(e,6e3)}());
+    var gauge2,svgg2=document.getElementById("gauge2");
+    svgg2&&(gauge2=Gauge(svgg2,{max:100,value:98,dialStartAngle:-0,dialEndAngle:-90.001}),function e(){gauge2.setValue(40),gauge2.setValueAnimated(30,1),window.setTimeout(e,6e3)}());
 </script>
+
 
     <script>
       window.dataLayer = window.dataLayer || [];

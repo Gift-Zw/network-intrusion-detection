@@ -19,11 +19,13 @@ from django.urls import path, include
 from core import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.dashboard_view, name="dashboard"),
     path('network-logs/', views.logs_view, name="logs"),
     path('users/', views.users_view, name="users"),
+    path('alert-history/', views.alert_view, name="alert"),
     path('logout/', views.logout_view, name="logout"),
+    path('api/upload/', views.upload_network_log, name='upload_network_log'),
 
 ]

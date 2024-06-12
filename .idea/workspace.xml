@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3595beb-a009-4ee6-98f0-fb554286cd49" name="Changes" comment="" />
+    <list default="true" id="e3595beb-a009-4ee6-98f0-fb554286cd49" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/consumers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/routing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/seriealizers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/alerts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intrusion_detection/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/intrusion_detection/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intrusion_detection/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/intrusion_detection/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intrusion_detection/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/intrusion_detection/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/apps.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/apps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2gldNCiX7kFnPT8GBjSmW1xIZtD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -67,11 +95,29 @@
       <workItem from="1716276074279" duration="345000" />
       <workItem from="1716276586959" duration="838000" />
       <workItem from="1716277776564" duration="611000" />
-      <workItem from="1716961883106" duration="5324000" />
+      <workItem from="1716961883106" duration="14690000" />
+      <workItem from="1717062626381" duration="23000" />
+      <workItem from="1717092337022" duration="1117000" />
+      <workItem from="1717186025735" duration="9000" />
+      <workItem from="1717336150531" duration="1233000" />
+      <workItem from="1717493399673" duration="643000" />
+      <workItem from="1718105537987" duration="6861000" />
+      <workItem from="1718126151857" duration="3801000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
